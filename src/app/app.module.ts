@@ -9,6 +9,7 @@ import { UsersPageComponent } from './components/users-page/users-page.component
 import { SingleTodoComponent } from './components/single-todo/single-todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CompletedPageComponent,
     UsersPageComponent,
     SingleTodoComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

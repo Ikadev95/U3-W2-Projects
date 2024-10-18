@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { iTodo } from '../interfaces/i-todo';
 import { iUser } from '../interfaces/i-user';
+import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -929,7 +930,7 @@ export class TodoServiceService {
 
   TodoPlusUserComp(users: iUser[]): iTodo[]{
     const filteredTodos = this.todos
-      .filter(todo => todo.completed) // Filtra solo i todo completati
+      .filter(todo => todo.completed)
       .map(todo => {
         const foundUser = users.find(user => user.id === todo.userId);
 
@@ -943,6 +944,20 @@ export class TodoServiceService {
 
     return filteredTodos;
   }
+
+  TodosOfUser(user: iUser): iTodo[]{
+    const filteredTodos = this.todos
+      .filter(todo => todo.userId === user.id)
+      .map(todo => {
+        return {
+          ...todo,
+          userName: user.firstName
+        };
+      });
+
+    return filteredTodos;
+  }
+
 
 
   constructor() {

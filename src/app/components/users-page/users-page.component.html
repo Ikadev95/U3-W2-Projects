@@ -1,3 +1,8 @@
 <div class="container pt-2">
   <h2>Users Page</h2>
+  <div class="row row-gap-4">
+    <div class="col-12 col-lg-6" *ngFor="let user of users">
+      <app-user-card [user]="user"></app-user-card>
+    </div>
+  </div>
 </div>
