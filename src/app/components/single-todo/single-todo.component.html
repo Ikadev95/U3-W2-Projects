@@ -4,7 +4,7 @@
         <input type="checkbox" [(ngModel)]="todo.completed" id="todo" class="checkbox" />
         <label class="px-1" for="todo"> {{todo.todo}}</label>
       </div>
-      <div class="description px-1">Autore: {{todo.userName}}</div>
+      <div class="description px-1"><ng-content ></ng-content></div>
 
   </div>
   <div class="complete rounded-circle" [ngClass]="{'colorCompleted': todo.completed, 'colorIncompleted': !todo.completed}"></div>
