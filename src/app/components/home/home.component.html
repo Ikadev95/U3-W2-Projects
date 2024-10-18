@@ -1,0 +1,9 @@
+<div class="container pt-2">
+  <h1>Tasks for today!</h1>
+  <div class="row row-gap-4">
+    <div class="col-12 col-lg-6" *ngFor="let todo of todos">
+      <app-single-todo [todo]="todo"></app-single-todo>
+    </div>
+  </div>
+</div>
+

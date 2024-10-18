@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { iTodo } from '../../interfaces/i-todo';
+import { TodoServiceService } from '../../services/todo-service.service';
+import { UserServiceService } from '../../services/user-service.service';
+
+@Component({
+  selector: 'app-completed-page',
+  templateUrl: './completed-page.component.html',
+  styleUrl: './completed-page.component.scss'
+})
+export class CompletedPageComponent implements OnInit{
+  todos:iTodo[] = []
+  constructor (
+    private TodoSvc:TodoServiceService,
+    private UserSvc: UserServiceService
+   ){}
+  ngOnInit(): void {
+
+    this.todos = this.TodoSvc.TodoPlusUserComp(this.UserSvc.users)
+  }
+
+}
