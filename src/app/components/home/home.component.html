@@ -1,6 +1,12 @@
 <main>
   <div class="container pt-2">
+
     <h1 class="my-2">Tasks for today!</h1>
+
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="input" [(ngModel)]="stringa" (ngModelChange)="filterTodos()">
+    </form>
+
     <div class="row row-gap-4 mt-3">
       <div class="col-12 col-lg-6" *ngFor="let todo of todos">
         <app-single-todo [todo]="todo">

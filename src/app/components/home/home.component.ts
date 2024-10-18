@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+
+  stringa:string = ''
   todos:iTodo [] =[]
+
  constructor (
   private TodoSvc:TodoServiceService,
   private UserSvc: UserServiceService
@@ -19,6 +22,12 @@ export class HomeComponent implements OnInit {
     this.todos = this.TodoSvc.todos
 
   }
+  filterTodos(): void {
+    this.todos = this.TodoSvc.searchTodos(this.stringa)
+    console.log(this.stringa)
+    console.log(this.todos)
+  }
+
 
 
 }

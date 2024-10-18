@@ -967,6 +967,14 @@ export class TodoServiceService {
 
   }
 
+  searchTodos(stringa: string): iTodo[] {
+    if (!stringa) {
+      return this.todos;
+    }
+    return this.todos.filter(todo =>
+      todo.todo.toLowerCase().includes(stringa.toLowerCase())
+    );
+  }
 
 
 
