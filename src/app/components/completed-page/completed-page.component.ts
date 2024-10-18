@@ -1,5 +1,5 @@
+import { iTodo } from './../../interfaces/i-todo';
 import { Component, OnInit } from '@angular/core';
-import { iTodo } from '../../interfaces/i-todo';
 import { TodoServiceService } from '../../services/todo-service.service';
 import { UserServiceService } from '../../services/user-service.service';
 
@@ -21,10 +21,15 @@ export class CompletedPageComponent implements OnInit {
     this.TodoSvc.updateTodo(this.todos);
   }
 
-  updateTodos(newTodos: iTodo[]) {
+  updateTodos(newTodos: iTodo[],todo:iTodo) {
     this.todos = newTodos;
     this.TodoSvc.updateTodo(this.todos);
+
+      const index = this.todos.findIndex(updated => updated.id === todo.id);
+      this.todos.splice(index,1)
+
   }
+
 
 
 }
