@@ -24,10 +24,7 @@ export class HomeComponent implements OnInit {
   }
   filterTodos(): void {
     this.todos = this.TodoSvc.searchTodos(this.stringa)
-    console.log(this.stringa)
-    console.log(this.todos)
+
   }
-
-
 
 }

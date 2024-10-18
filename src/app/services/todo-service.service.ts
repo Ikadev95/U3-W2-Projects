@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { iTodo } from '../interfaces/i-todo';
 import { iUser } from '../interfaces/i-user';
-import { filter, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

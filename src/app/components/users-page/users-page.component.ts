@@ -12,6 +12,7 @@ import { iTodo } from '../../interfaces/i-todo';
 export class UsersPageComponent implements OnInit {
   todos:iTodo[] = []
   users:iUser [] =[]
+  stringa:string = ''
   constructor (
    private TodoSvc:TodoServiceService,
    private UserSvc: UserServiceService
@@ -21,4 +22,8 @@ export class UsersPageComponent implements OnInit {
     this.users = this.UserSvc.users
   }
 
+  filterUsers(): void {
+    this.users = this.UserSvc.searchUser(this.stringa)
+
+  }
 }

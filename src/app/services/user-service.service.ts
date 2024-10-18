@@ -828,4 +828,13 @@ export class UserServiceService {
   })
 }
 
+searchUser(stringa: string): iUser[] {
+  if (!stringa) {
+    return this.users;
+  }
+  return this.users.filter(user =>
+    user.firstName.toLowerCase().includes(stringa.toLowerCase())
+  );
+}
+
 }
