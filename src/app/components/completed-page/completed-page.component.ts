@@ -6,17 +6,25 @@ import { UserServiceService } from '../../services/user-service.service';
 @Component({
   selector: 'app-completed-page',
   templateUrl: './completed-page.component.html',
-  styleUrl: './completed-page.component.scss'
+  styleUrls: ['./completed-page.component.scss']
 })
-export class CompletedPageComponent implements OnInit{
-  todos:iTodo[] = []
-  constructor (
-    private TodoSvc:TodoServiceService,
-    private UserSvc: UserServiceService
-   ){}
-  ngOnInit(): void {
+export class CompletedPageComponent implements OnInit {
+  todos: iTodo[] = [];
 
-    this.todos = this.TodoSvc.TodoPlusUserComp(this.UserSvc.users)
+  constructor(
+    private TodoSvc: TodoServiceService,
+    private UserSvc: UserServiceService
+  ) {}
+
+  ngOnInit(): void {
+    this.todos = this.TodoSvc.TodoPlusUserComp(this.UserSvc.users);
+    this.TodoSvc.updateTodo(this.todos);
   }
+
+  updateTodos(newTodos: iTodo[]) {
+    this.todos = newTodos;
+    this.TodoSvc.updateTodo(this.todos);
+  }
+
 
 }

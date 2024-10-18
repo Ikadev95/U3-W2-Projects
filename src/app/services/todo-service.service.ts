@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { iTodo } from '../interfaces/i-todo';
 import { iUser } from '../interfaces/i-user';
-import { filter } from 'rxjs';
+import { filter, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -911,7 +911,6 @@ export class TodoServiceService {
     }
   ]
 
-
   TodoPlusUser(users:iUser[]):void{
     this.todos = this.todos.map(todo => {
 
@@ -957,6 +956,17 @@ export class TodoServiceService {
 
     return filteredTodos;
   }
+
+  updateTodo(updatedTodos: iTodo[]) {
+    this.todos = this.todos.map(todo => {
+      const updatedTodo = updatedTodos.find(updated => updated.id === todo.id);
+      return updatedTodo ? { ...updatedTodo } : todo;
+      //Se updatedTodo è stato trovato, uso spread operator { ...updatedTodo } per creare una copia dell'oggetto aggiornato.
+
+    });
+
+  }
+
 
 
 

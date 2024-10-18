@@ -1,5 +1,5 @@
 import { iTodo } from './../../interfaces/i-todo';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-single-todo',
@@ -11,4 +11,9 @@ export class SingleTodoComponent implements OnInit{
 
   }
   @Input() todo!:iTodo
+  @Output() edit = new EventEmitter<iTodo>();
+
+  onEdit() {
+    this.edit.emit(this.todo);
+  }
 }

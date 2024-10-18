@@ -21,4 +21,9 @@ constructor (
 
     this.todos = this.TodoSvc.TodosOfUser(this.user)
   }
+
+  updateTodos(newTodos: iTodo[]) {
+    this.todos = newTodos;
+    this.TodoSvc.updateTodo(this.todos);
+  }
 }
